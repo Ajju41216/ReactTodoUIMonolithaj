@@ -1,10 +1,17 @@
 trigger: none
 pool: HLD
 steps:
+- task: NodeTool@0
+  displayName: To install Nodejs
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '16.x'
+- task: PowerShell@2
+  displayName:  NPM install
+  inputs:
+    targetType: 'inline'
+    script: 'npm install'
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      Write-Host "Hello World"
+    script: 'npm run build'
