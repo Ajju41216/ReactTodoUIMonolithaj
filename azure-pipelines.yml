@@ -18,8 +18,13 @@ steps:
 - task: ArchiveFiles@2
   displayName: 
   inputs:
-    rootFolderOrFile: '$(Build.SourceDirectory)/build'
+    rootFolderOrFile: '$(SystemDefaultWorkingDirectory)/build/'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.SourceDirectory)/build.zip'
+    archiveFile: '$(SystemDefaultWorkingDirectory)/build/'
     replaceExistingArchive: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(SystemDefaultWorkingDirectory)/build.zip'
+    ArtifactName: 'to-do'
+    publishLocation: 'Container'
