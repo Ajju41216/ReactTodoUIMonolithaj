@@ -18,10 +18,10 @@ steps:
 - task: ArchiveFiles@2
   displayName: 
   inputs:
-    rootFolderOrFile: '$(SystemDefaultWorkingDirectory)/build/'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Build'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(SystemDefaultWorkingDirectory)/build/'
+    archiveFile: '$(System.DefaultWorkingDirectory)/Build.zip'
     replaceExistingArchive: true
 - task: PublishBuildArtifacts@1
   inputs:
